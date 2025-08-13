@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { AnimatePresence } from 'framer-motion'
-import { ArrowLeft } from 'lucide-react'
+import { Moon, Sun, ArrowLeft } from 'lucide-react'
 import LandingPage from './components/LandingPage'
 import EncryptionPage from './components/EncryptionPage'
 import DecryptionPage from './components/DecryptionPage'
@@ -9,14 +9,27 @@ import './App.css'
 
 function App() {
   const [currentPage, setCurrentPage] = useState('landing') // 'landing', 'encryption', 'decryption'
+  const [isDarkTheme, setIsDarkTheme] = useState(true)
+
+  const toggleTheme = () => {
+    setIsDarkTheme(!isDarkTheme)
+  }
 
   const resetToLanding = () => {
     setCurrentPage('landing')
   }
 
   return (
-    <ThemeProvider>
-      <div className="app dark-theme">
+    <ThemeProvider isDark={isDarkTheme}>
+      <div className={`app ${isDarkTheme ? 'dark-theme' : 'light-theme'}`}>
+        {/* Theme Toggle Button */}
+        <button 
+          className="theme-toggle"
+          onClick={toggleTheme}
+        >
+          {isDarkTheme ? <Sun size={20} /> : <Moon size={20} />}
+        </button>
+
         {/* Reset Button (shown when not on landing page) */}
         <AnimatePresence>
           {currentPage !== 'landing' && (
@@ -43,12 +56,14 @@ function App() {
           {currentPage === 'encryption' && (
             <EncryptionPage 
               key="encryption"
+              isDarkTheme={isDarkTheme}
             />
           )}
           
           {currentPage === 'decryption' && (
             <DecryptionPage 
               key="decryption"
+              isDarkTheme={isDarkTheme}
             />
           )}
         </AnimatePresence>
