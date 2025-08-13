@@ -1,9 +1,9 @@
 import React from 'react'
 import { ThemeContext } from './themeContext'
 
-const ThemeProvider = ({ children }) => {
+const ThemeProvider = ({ children, isDark }) => {
   return (
-    <ThemeContext.Provider value={{ isDark: true }}>
+    <ThemeContext.Provider value={{ isDark }}>
       {children}
     </ThemeContext.Provider>
   )
