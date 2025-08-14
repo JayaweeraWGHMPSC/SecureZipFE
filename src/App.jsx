@@ -4,7 +4,7 @@ import { Moon, Sun, ArrowLeft } from 'lucide-react'
 import LandingPage from './components/LandingPage'
 import EncryptionPage from './components/EncryptionPage'
 import DecryptionPage from './components/DecryptionPage'
-import ThemeProvider from './context/ThemeContext'
+import ThemeProvider from './context/ThemeContext.jsx'
 import './App.css'
 
 function App() {

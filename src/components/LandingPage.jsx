@@ -5,7 +5,7 @@ const LandingPage = ({ onSelectEncryption, onSelectDecryption }) => {
   return (
     <div className="landing-container">
       <div className="hero-section">
-        <h1 className="hero-title">
+        <h1 className="hero-title" data-text="SecureZip">
           SecureZip
         </h1>
         <p className="hero-subtitle">
@@ -56,7 +56,8 @@ const LandingPage = ({ onSelectEncryption, onSelectDecryption }) => {
           background: 'var(--accent-primary)',
           borderRadius: '50%',
           opacity: 0.1,
-          zIndex: -1
+          zIndex: -1,
+          animation: 'float 6s ease-in-out infinite'
         }}
       />
       
@@ -70,7 +71,45 @@ const LandingPage = ({ onSelectEncryption, onSelectDecryption }) => {
           background: 'var(--accent-secondary)',
           borderRadius: '30%',
           opacity: 0.1,
-          zIndex: -1
+          zIndex: -1,
+          animation: 'float 8s ease-in-out infinite reverse'
+        }}
+      />
+      
+      {/* Digital Grid Overlay */}
+      <div
+        style={{
+          position: 'absolute',
+          top: '20%',
+          right: '5%',
+          width: '200px',
+          height: '200px',
+          background: `
+            linear-gradient(90deg, var(--accent-primary) 1px, transparent 1px),
+            linear-gradient(var(--accent-primary) 1px, transparent 1px)
+          `,
+          backgroundSize: '20px 20px',
+          opacity: 0.05,
+          zIndex: -1,
+          animation: 'pulse 4s ease-in-out infinite'
+        }}
+      />
+      
+      <div
+        style={{
+          position: 'absolute',
+          bottom: '20%',
+          left: '5%',
+          width: '150px',
+          height: '150px',
+          background: `
+            linear-gradient(45deg, var(--accent-secondary) 1px, transparent 1px),
+            linear-gradient(-45deg, var(--accent-secondary) 1px, transparent 1px)
+          `,
+          backgroundSize: '15px 15px',
+          opacity: 0.06,
+          zIndex: -1,
+          animation: 'pulse 5s ease-in-out infinite reverse'
         }}
       />
     </div>

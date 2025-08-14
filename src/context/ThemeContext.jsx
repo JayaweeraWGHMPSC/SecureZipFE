@@ -1,5 +1,5 @@
 import React from 'react'
-import { ThemeContext } from './themeContext'
+import { ThemeContext } from './ThemeContext.js'
 
 const ThemeProvider = ({ children, isDark }) => {
   return (
